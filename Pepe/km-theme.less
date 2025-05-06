@@ -1,0 +1,443 @@
+@customer-primary: #hexcode;
+@customer-secondary: #hexcode;
+@customer-font: "FONT NAME", "Lexend", arial, sans-serif;
+
+//Optional styles
+@logo-height: 50px;
+@customer-link: #0000ee;
+@tool-bar-link-hover: @customer-secondary;
+@splash-background: @customer-primary; /* delete this and use @splash-background below if using an image. delete the // to uncomment it */
+//@splash-background: url("IMG URL HERE");
+@splash-text: #fff;
+@tile-background: #f2f2f2;
+@tile-border: #93979c;
+@border-radius: 10px;
+
+//DO NOT EDIT THE CODE BELOW THIS LINE
+@primary-link-color: #000;
+@primary-link-color-hover: @customer-secondary;
+@primary-link-color-active: @primary-link-color-hover;
+@primary-link-color-focus: @primary-link-color-hover;
+@default-font-family: @customer-font;
+@customer-neutral: #f2f2f2;
+@customer-neutral-border: #93979c;
+@tool-bar-background: @customer-primary;
+@tool-bar-dropdown-link-hover: @customer-secondary;
+@highlight-color: #000;
+
+//Logo
+.elm-header-logo-container a img {
+  height: @logo-height;
+}
+
+//Article links
+.mt-content-container
+  a:not(.mt-listing-detailed a):not(.mt-listings-simple a):not(
+    .mt-sortable-listing a
+  ):not(.mt-guide-tab a):not(.mt-f1-success),
+#pageText
+  a:not(.mt-listing-detailed a):not(.mt-listings-simple a):not(
+    .mt-sortable-listing a
+  ):not(.mt-guide-tab a):not(.mt-f1-success) {
+  color: @customer-link;
+  text-decoration: underline;
+  &:hover,
+  &:active {
+    color: @customer-secondary;
+  }
+  &:focus {
+    color: @customer-secondary;
+    outline: 1px dotted @customer-secondary;
+  }
+}
+
+/* give links color in edit mode */
+.cke_browser_webkit a {
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+//Tool bar
+.elm-header-user-nav.elm-nav {
+  background: @tool-bar-background; /* Tool bar background */
+  .mt-user-menu {
+    li {
+      a {
+        color: contrast(@tool-bar-background); /* Tool bar link color */
+        &:hover,
+        &:active {
+          color: @tool-bar-link-hover;
+          border-color: @tool-bar-link-hover;
+        }
+        &:focus {
+          outline: 1px dotted @tool-bar-link-hover;
+          color: @tool-bar-link-hover;
+          border-color: @tool-bar-link-hover;
+        }
+      }
+      a.mt-icon-user-menu {
+        background: #fff;
+        &:hover,
+        &:active {
+          background: @tool-bar-link-hover;
+        }
+        &:focus {
+          outline: 1px dotted @tool-bar-link-hover;
+          background: @tool-bar-link-hover;
+        }
+      }
+    }
+    .mt-dropdown {
+      border-color: @customer-primary;
+      a {
+        &:hover,
+        &:active {
+          background: transparent;
+          color: @tool-bar-dropdown-link-hover;
+        }
+        &:focus {
+          outline: 1px dotted @tool-bar-dropdown-link-hover;
+          color: @tool-bar-dropdown-link-hover;
+          background: transparent;
+        }
+      }
+    }
+  }
+  #mt-site-search-input {
+    border: 1px solid @customer-primary;
+    background: #fff;
+    color: #000;
+    &:hover,
+    &:focus,
+    &:active {
+      border: 1px solid @customer-secondary;
+    }
+    &::placeholder {
+      color: #999;
+    }
+  }
+  .mt-icon-site-search-button:before {
+    color: #999;
+  }
+}
+
+.columbia-page-home .elm-header-user-nav, 
+.columbia-page-special .elm-header-user-nav {
+    border-bottom: 1px solid @customer-primary;
+}
+
+//Tool bar user letter
+.elm-header-user-nav .elm-user-menu a.mt-icon-user-menu:hover:first-letter, 
+.elm-header-user-nav .elm-user-menu a.mt-icon-user-menu:active:first-letter, 
+.elm-header-user-nav .elm-user-menu a.mt-icon-user-menu:focus:first-letter {
+  color: contrast(@tool-bar-link-hover);
+}
+
+//Breadcrumb
+.elm-header-global-nav.elm-nav {
+  .mt-hierarchy-trigger {
+    color: #6e6b71;
+    &:hover,
+    &:active {
+      color: @customer-secondary;
+    }
+    &:focus {
+      color: @customer-secondary;
+      outline: 1px dotted @customer-secondary;
+    }
+  }
+  .mt-icon-hierarchy-trigger-open:before {
+    color: @customer-secondary;
+  }
+}
+
+.elm-nav.elm-header-hierarchy {
+  .mt-hierarchy {
+    border-color: @customer-primary;
+  }
+}
+
+.no-touch .fancytree-node:hover .fancytree-icon,
+.fancytree-active .fancytree-icon,
+.no-touch .fancytree-node:hover [class*="mt-icon-article-"] {
+  color: @customer-secondary;
+}
+
+.mt-breadcrumbs li a:hover span:before,
+.mt-breadcrumbs li a:focus span:before,
+.mt-breadcrumbs-current-page span {
+  color: @customer-secondary;
+}
+
+//Tiles
+.flexbox-style {
+  border: 1px solid @tile-border;
+  background: @tile-background;
+  box-sizing: border-box;
+  box-shadow: none;
+  a {
+    &:hover,
+    &:active {
+      color: @customer-secondary;
+    }
+    &:focus {
+      color: @customer-secondary;
+      outline: 1px dotted @customer-secondary;
+    }
+  }
+  .no-touch &:hover {
+    border: 1px solid @tile-border;
+    box-shadow: none;
+  }
+}
+
+.mt-related-listing.mt-related-listing-detailed {
+  border: 1px solid @tile-border;
+  background: @tile-background;
+  box-shadow: none;
+  .no-touch &:hover {
+    border: 1px solid @tile-border;
+    box-shadow: none;
+  }
+}
+
+.no-touch .mt-related-listing-link:hover {
+  text-decoration-color: @customer-secondary !important;
+}
+
+.no-touch .mt-related-listing-link:hover span.mt-related-listing-link-text {
+  color: @customer-secondary;
+}
+
+//Guide pages
+.ui-tabs {
+  border-color: @customer-neutral-border;
+  .ui-tabs-scroll-container {
+    background: @customer-neutral;
+    .ui-tabs-nav {
+      border-color: @customer-neutral-border;
+      li {
+        border-color: @customer-neutral-border;
+        background-color: @customer-neutral;
+        a {
+          color: #6e6b71;
+        }
+        &:hover {
+          background: #fff;
+        }
+      }
+      li.ui-state-active {
+        background: #fff;
+        a {
+          color: @customer-secondary;
+        }
+      }
+    }
+  }
+}
+
+.ui-tabs .ui-tabs-nav-arrows {
+  background: @customer-neutral;
+  border-color: @customer-neutral-border;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-state-active + .mt-guide-tab {
+  border-top-color: @customer-neutral-border;
+}
+
+.mt-guide-add-button-container {
+  background: @customer-neutral;
+  border-color: @customer-neutral-border;
+  button.mt-guide-tabs-add-button {
+    border-color: @customer-neutral-border;
+    .no-touch &:hover,
+    .no-touch &:focus {
+      border-color: @customer-neutral-border;
+      background: #fff;
+      &:before {
+        color: @customer-secondary;
+      }
+    }
+  }
+}
+
+//Feedback
+.mt-feedback-rating-button.mt-selected:before {
+  border: 1px solid transparent;
+  background: @customer-secondary;
+}
+
+.mt-feedback-rating-button:before {
+  border: 1px solid transparent !important;
+}
+
+.mt-feedback-rating-controls button:hover:before {
+  background: @customer-secondary;
+}
+
+//Page icons
+.elm-page-notifications .mt-icon-page-notification.off:before {
+  color: @customer-neutral-border;
+  &:hover {
+    color: @customer-primary;
+  }
+}
+
+.mt-icon-page-notification:hover:before {
+  color: @customer-primary !important;
+}
+
+.elm-page-notifications .mt-icon-page-notification:before {
+  color: @customer-secondary;
+  &:hover {
+    color: @customer-primary;
+  }
+}
+
+.elm-pdf-export .mt-icon-article-pdf:hover,
+.no-touch .elm-pdf-export .mt-icon-article-pdf:hover {
+  color: @customer-primary;
+}
+
+//Search results
+.no-touch #search-results li a:hover,
+.no-touch #search-results li a:focus {
+  color: @customer-secondary;
+}
+
+.mt-tree-search-results li a:visited,
+.no-touch .mt-tree-search-results li a:visited {
+  color: @primary-link-color-visited;
+}
+
+//Splash container
+.mt-prepend-home.mt-custom-home.elm-nav {
+  background: @splash-background;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  border: none;
+  h1.mt-home-search-title {
+    color: @splash-text;
+  }
+  .mt-inputredirect-button {
+    color: @customer-primary;
+    &:hover {
+      color: @customer-secondary;
+    }
+  }
+}
+
+//also for search page input
+.no-touch #mt-inputredirect-input:hover,
+.no-touch .mt-text:hover {
+  border: 1px solid @customer-primary;
+}
+
+.no-touch #mt-inputredirect-input:hover + .mt-inputredirect-button,
+.no-touch .mt-search-spblls-component .mt-help-search-input:hover + button,
+.no-touch .mt-search-spblls-component .mt-icon-search:hover {
+  color: @customer-secondary;
+}
+
+//Buttons
+@default-button-background-color: @background;
+@default-button-background-color-hover: @default-button-background-color;
+@default-button-background-color-focus: @default-button-background-color;
+@default-button-background-color-active: @default-button-background-color;
+@default-button-border-color: @customer-primary;
+@default-button-border-color-hover: @customer-secondary;
+@default-button-border-color-focus: @customer-secondary;
+@default-button-border-color-active: @customer-secondary;
+@default-button-color: @customer-primary;
+@default-button-color-hover: @customer-secondary;
+@default-button-color-focus: @customer-secondary;
+@default-button-color-active: @customer-secondary;
+@default-button-hover-glow: fade(@default-button-border-color-hover, 50%);
+@default-button-inner-shadow: none;
+
+@primary-button-background-color: @customer-primary;
+@primary-button-background-color-hover: @customer-secondary;
+@primary-button-background-color-active: @customer-secondary;
+@primary-button-border-color: @customer-primary;
+@primary-button-border-color-hover: @customer-secondary;
+@primary-button-border-color-active: @customer-secondary;
+@primary-button-color: contrast(@primary-button-background-color);
+@primary-button-color-hover: contrast(@primary-button-background-color-hover);
+@primary-button-color-active: contrast(@primary-button-background-color-active);
+@primary-button-inner-shadow: none;
+
+//Tables
+@table-header-background-color: @customer-neutral;
+@table-header-border-color: @customer-neutral-border;
+@table-row-odd-background-color: @background;
+@table-row-even-background-color: @customer-neutral;
+@table-row-hover-background-color: darken(@customer-neutral, 5%);
+
+//Admin stuff
+@edit-controls-background-color: @background;
+@edit-controls-background-color-hover: @customer-primary;
+@edit-controls-border-color: @customer-primary;
+@edit-controls-border-color-hover: @customer-primary;
+@edit-controls-text-color: @customer-primary;
+@edit-controls-text-color-hover: contrast(@customer-primary);
+
+@dialog-border-color: @customer-neutral-border;
+@dialog-box-shadow: 0 0 1em fade(@customer-neutral-border, 25%);
+.ui-dialog .ui-dialog-titlebar {
+    background: @customer-neutral;
+    border-color: @customer-neutral-border;
+}
+
+@f1-icon-background-color: @customer-secondary;
+@f1-icon-background-color-hover: @background;
+@f1-icon-border-color: @customer-secondary;
+@fi-icon-border-color-hover: @customer-secondary;
+@f1-icon-text-color: contrast(@customer-primary);
+@f1-icon-text-color-hover: @customer-secondary;
+@f1-link-color: @customer-secondary;
+@f1-link-color-visited: @customer-secondary;
+@f1-link-color-hover: @customer-secondary;
+@f1-link-color-active: @customer-secondary;
+@f1-link-color-focus: @customer-secondary;
+
+.mt-icon-f1-link:before {
+  border: 1px solid @customer-secondary !important;
+}
+
+.no-touch .mt-f1-link:hover,
+.no-touch .ui-widget-content .mt-f1-link:hover {
+  text-decoration: underline;
+}
+
+.no-touch .mt-f1-link:focus,
+.no-touch .ui-widget-content .mt-f1-link:focus {
+  outline: 1px dotted @customer-secondary;
+}
+
+.mt-icon-learn-more:before {
+  display: inline-block;
+}
+
+//Removes underline from icons next to links on welcome page
+.columbia-special-firstloginwelcome a:before {
+  display: inline-block;
+}
+
+//Local login
+#SpecialUserlogin .ui-tabs .ui-tabs-nav {
+  background: @customer-neutral;
+  border-bottom: 1px solid @customer-neutral-border;
+  li.ui-state-default {
+    background: @customer-neutral;
+    border-color: @customer-neutral-border;
+  }
+  li.ui-state-active {
+    background: @background;
+    border-color: @customer-neutral-border;
+  }
+}
+
+//Border radius
+@border-radius-default: @border-radius;
+@border-radius-lsf: @border-radius-default;

@@ -2,6 +2,9 @@ import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
+// Add this at the top of your main entry file (like main.js)
+import 'vite/modulepreload-polyfill';
+
 
 document.querySelector('#app').innerHTML = `
   <div>

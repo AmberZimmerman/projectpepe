@@ -1,3 +1,30 @@
-a {
+a * {
     color: yellow !important;
 }
+
+span.mt-sortable-listing-title {
+    line-height: 1.1;
+    text-align: left;
+    padding-left: 1em;
+  }
+  
+
+  
+  li.mt-sortable-listing.mt-hoverable-area.mt-sortable-drag-target {
+    margin: .45em;
+  }
+  
+
+  
+  a.mt-sortable-listing-link.mt-edit-section.internal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  
+  .mt-sortable-listing-image img {
+    max-height: 80px;
+    max-width: auto;
+  }

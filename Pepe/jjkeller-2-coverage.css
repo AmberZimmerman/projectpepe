@@ -1,0 +1,48 @@
+// This part goes after your CSS in the same snippet file
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+    /* Paste your CSS code here within the backticks */
+    a * {
+        color: yellow !important;
+    }
+
+    span.mt-sortable-listing-title {
+        line-height: 1.1;
+        text-align: left;
+        padding-left: 1em;
+      }
+
+
+
+      li.mt-sortable-listing.mt-hoverable-area.mt-sortable-drag-target {
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+        /* flex-direction: column; */
+        margin: .45em;
+      }
+
+
+
+      a.mt-sortable-listing-link.mt-edit-section.internal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* flex-direction: column; */
+        padding: 1rem;
+      }
+
+
+
+      span.mt-sortable-listing-image {
+        /* max-height: 20px; */
+      }
+
+
+
+      .mt-sortable-listing-image img {
+        max-height: 80px;
+        max-width: auto;
+      }
+    `;
+    document.head.appendChild(styleElement);

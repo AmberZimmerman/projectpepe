@@ -1,10 +1,10 @@
-@customer-primary: #f2f2f2;
-@customer-secondary: #101820;
 @nice-light-blue: #23c9ff;
 @nice-dark-blue: #0006ff;
+
+@customer-primary: #f2f2f2;
+@customer-secondary: #101820;
 @customer-font: 'Be Vietnam Pro', serif;
 @background: #f6f7f8;
-@less-vibrant-link: #3639b6;
 // @default-font-family: "Be Vietnam Pro", serif;
 // @heading-font-family: "Lexend", arial, sans-serif;
 
@@ -44,12 +44,12 @@
 }
 
 @splash-background: @customer-secondary; /* delete this and use @splash-background below if using an image. delete the // to uncomment it */
-@splash-background: url('https://amber-branding.cxoneexpert.ai/@api/deki/files/6/Frame_2_(2).png?origin=mt-web');
+// @splash-background: url('');
 @splash-text: #fff;
 @tile-background: #fff;
 @tile-border: #d9dce2;
-@border-radius: 0.5rem;
-@border-radius-lsf: 0.5rem;
+@border-radius: 2px;
+@border-radius-lsf: 2px;
 
 //DO NOT EDIT THE CODE BELOW THIS LINE
 @primary-link-color: #000;
@@ -361,13 +361,36 @@
   background-size: cover;
   background-position: 50% 50%;
   border: none;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(
+      -90deg,
+      #ff3e39,
+      #fc2566,
+      #8531e4,
+      #1000fe,
+      #05fcff
+    );
+  }
   h1.mt-home-search-title {
     color: @splash-text;
+    text-align: left;
   }
-  .mt-inputredirect-button {
-    color: @customer-primary;
+  .mt-inputredirect-input {
+    font-size: 120%;
+    padding-left: 2rem;
+  }
+  button.mt-inputredirect-button {
+    color: @customer-secondary;
+    padding: 0;
+    font-size: 185%;
     &:hover {
-      color: @customer-secondary;
+      color: @customer-primary;
     }
   }
 }
@@ -504,54 +527,6 @@
   border: 1px solid #93979c;
 }
 
-/* || Accordion */
-p.accordion {
-  margin: 1rem 0 0;
-  button,
-  button.active {
-    width: 100%;
-    text-align: left;
-    font-size: 18px;
-    padding: 1rem;
-    background: #23c9ff; /* Accordion button background color */
-    color: #000; /* Accordion button font color */
-    border-color: #23c9ff; /* Accordion button border color */
-    border-radius: 0; /* Accordion button border roundness */
-    &:before {
-      float: right;
-      margin: 9px 0;
-    }
-    &:hover,
-    &:active,
-    &:focus {
-      background: #23c9ff; /* Accordion button background color - hover/active/focus */
-      border-color: #23c9ff; /* Accordion button border color - hover/active/focus */
-      box-shadow: none;
-      color: #000; /* Accordion button font color - hover/active/focus */
-    }
-    &:focus {
-      box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.25); /* Accordion box shadow - focus */
-      color: #000;
-    }
-  }
-}
-.panel {
-  display: none;
-  background: #ebfaff; /* Accordion panel background color */
-  padding: 2rem 1rem;
-  position: relative;
-  &:after {
-    border-left: 22px solid transparent;
-    border-right: 22px solid transparent;
-    border-top: 22px solid #23c9ff; /* Expanded accordion triangle. Make this the same color as the active background color */
-    width: 0;
-    height: 0;
-    content: '';
-    position: absolute;
-    top: 0;
-  }
-}
-
 .cke_browser_webkit .panel {
   display: block;
 }
@@ -568,43 +543,15 @@ tr:nth-child(2n) td {
   font-weight: 400;
 }
 
-#elm-main-content > header > div#mt-summary.az-hidden {
-  display: none !important;
-}
-
 .mt-new-features-container {
   display: none !important;
-}
-
-/* pinned pages toggle */
-button.pinned-pages-toggle {
-  background: none;
-  border: none;
-  border-radius: none;
-  padding: 0;
-  &:hover {
-    background: none;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-  }
-}
-
-/* remove big question mark */
-.mt-pinned-pages .mt-empty-state-learn-more {
-  display: none;
-}
-
-/*remove extra pinned pages spacing */
-.mt-pinned-pages-list.mt-guide-listings li {
-  margin: 0;
 }
 
 .mt-icon-f1-link:before {
   background: #fff;
 }
 
-.mt-sortable-listings-container {
+.mt-sortable-listings-container:not(.mt-sortable-listing-detailed) {
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -662,53 +609,47 @@ button.pinned-pages-toggle {
 }
 
 /* Fake home popular pages CSS */
-.container {
+.fake-popular-container {
   width: 100%;
-  /* max-width: 800px; */
-  margin: auto;
-  // padding: 1rem;
+  margin: 2em auto 5em;
+  padding: 0;
   border-radius: 8px;
-  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
-}
-
-.container h2 {
-  margin: 0;
-  margin-bottom: 1.5rem;
-  @media (min-width: 37.5em) {
-    font-size: 150%;
+  h2 {
+    margin: 0;
+    margin-bottom: 1.5rem;
+    @media (min-width: 37.5em) {
+      font-size: 150%;
+    }
+  }
+  .columns {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    .column {
+      flex: 1;
+      min-width: 300px;
+      a {
+        margin-bottom: 0;
+        border: 1px solid #d9dce2;
+      }
+    }
   }
 }
 
-.columns {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-bottom: 2em;
-}
-
-.column {
-  flex: 1;
-  min-width: 300px;
-  a {
-    color:#3639b6;
-  }
-}
-
+/* individual Popular tiles */
 .link-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.1rem 1rem;
   margin-bottom: 0.5rem;
-  background: #fff;
+  background: #d5f0ff;
   border-radius: 0; /* remove default */
   text-decoration: none;
-  color: #333;
+  color: @customer-secondary !important;
   transition: background 0.2s;
-  a {
-    color: @customer-secondary;
-  }
 }
 
 .link-item::after {
@@ -738,7 +679,7 @@ button.pinned-pages-toggle {
 }
 
 .link-item:hover {
-  background: #e0e0e0;
+  background: @nice-light-blue;
 }
 
 .arrow-icon {
@@ -751,10 +692,16 @@ button.pinned-pages-toggle {
 @media (max-width: 760px) {
   .columns {
     flex-direction: column;
+    gap: 0;
   }
 }
 
-/* Bottom section */
+/* make all topics above tiles slightly smaller */
+.home-header {
+  font-size: 1.5rem;
+}
+
+/* Bottom Need More Help Section */
 .help-section {
   width: 100%;
   padding: 2rem;
@@ -762,60 +709,52 @@ button.pinned-pages-toggle {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  .help-header {
+    margin-bottom: 1rem;
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    p {
+      margin: 0.25rem 0 1.5rem 0;
+      color: #555;
+    }
+  }
 }
 
-.help-header {
-  margin-bottom: 1rem;
-}
-
-.help-header h2 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.home-header {
-  font-size: 1.5rem;
-}
-
-.help-header p {
-  margin: 0.25rem 0 1.5rem 0;
-  color: #555;
-}
-
+/* Need more help cards */
 .card-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-.card {
-  flex: 1;
-  min-width: 250px;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem;
-  background: #f0f0f0;
-  border-radius: 6px;
-}
-
-.card img {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-}
-
-.card-content a {
-  font-weight: bold;
-  color: #0073e6;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 0.25rem;
-}
-
-.card-content p {
-  margin: 0;
-  color: #333;
+  .card {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f0f0f0;
+    border-radius: 6px;
+    img {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+    .card-content {
+      a {
+        font-weight: bold;
+        color: @primary-link-color !important;
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 0.25rem;
+      }
+      p {
+        margin: 0;
+        color: #333;
+      }
+    }
+  }
 }
 
 @media (max-width: 760px) {
@@ -830,12 +769,8 @@ button.pinned-pages-toggle {
   margin: 0 !important;
 }
 
-.column a {
-  margin-bottom: 0;
-  border: 1px solid #d9dce2;
-}
 
-// Fix top toolbar
+/* Refine spacing for user nav */
 .mt-user-menu > li:not(.mt-dropdown) {
   margin-left: 1.8em !important;
   align-items: center;
@@ -845,7 +780,7 @@ button.pinned-pages-toggle {
   }
 }
 
-/* dropdown svg arrow added after user nav links */
+/* Add dropdown svg arrow added after user nav links */
 .mt-user-menu
   > li:not(:last-child)
   > a.mt-dropdown-link:not(.mt-icon-new-page)::after {
@@ -868,21 +803,21 @@ button.pinned-pages-toggle {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='6 8 12 8' fill='%2323c9ff'%3E%3Cpath d='m 12 16 a 1 1 0 0 1 -0.71 -0.29 l -6 -6 a 1 1 0 0 1 1.42 -1.42 l 5.29 5.3 l 5.29 -5.29 a 1 1 0 0 1 1.41 1.41 l -6 6 a 1 1 0 0 1 -0.7 0.29 Z'/%3E%3C/svg%3E");
 }
 
-// move margins in just a little bit for main section
+/* Move main content margins in */
 @media (min-width: 83em) {
   .elm-content-container {
-    max-width: 65em;
-    min-width: 65em;
+    max-width: 60em;
+    min-width: 60em;
   }
 }
 
 @media (min-width: 80em) {
   .elm-nav-container {
-    max-width: 65em;
+    max-width: 60em;
   }
 }
 
-/*search bar border radius */
+/* Search bar border radius */
 .mt-help {
   border-radius: 0.5rem;
 }

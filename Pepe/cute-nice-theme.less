@@ -1,5 +1,4 @@
-// @nice-light-blue: #23c9ff;
-@nice-light-blue: #ff6200;
+@customer-color: #ff6200;
 @customer-primary: #f2f2f2;
 @customer-secondary: #101820;
 @customer-font: 'Be Vietnam Pro', serif;
@@ -10,9 +9,9 @@
 //Optional styles
 @logo-height: 50px;
 @customer-link: #0006ff;
-@tool-bar-link-hover: @nice-light-blue;
+@tool-bar-link-hover: @customer-color;
 
-@splash-background: @nice-light-blue; /* delete this and use @splash-background below if using an image. delete the // to uncomment it */
+@splash-background: @customer-color; /* delete this and use @splash-background below if using an image. delete the // to uncomment it */
 // @splash-background: url('');
 @splash-text: #fff;
 @tile-background: #fff;
@@ -28,8 +27,8 @@
 // @default-font-family: @customer-font;
 @customer-neutral: #f2f2f2;
 @customer-neutral-border: #93979c;
-@tool-bar-background: @nice-light-blue;
-@tool-bar-dropdown-link-hover: @nice-light-blue;
+@tool-bar-background: @customer-color;
+@tool-bar-dropdown-link-hover: @customer-color;
 @highlight-color: #000;
 
 //Logo
@@ -64,8 +63,6 @@
   // text-decoration: underline;
 }
 
-
-
 //Tool bar
 .elm-header-user-nav.elm-nav {
   background: @tool-bar-background; /* Tool bar background */
@@ -85,12 +82,12 @@
         }
       }
       a.mt-icon-user-menu {
-        background: @nice-light-blue;
+        background: @customer-color;
         &:hover,
         &:active {
           background: @customer-secondary;
           &::first-letter {
-            color: @nice-light-blue;
+            color: @customer-color;
           }
         }
         &:focus {
@@ -163,12 +160,12 @@
         }
       }
       a.mt-icon-user-menu {
-        background: @nice-light-blue;
+        background: @customer-color;
         &:hover,
         &:active {
           background: @customer-secondary;
           &::first-letter {
-            color: @nice-light-blue;
+            color: @customer-color;
           }
         }
         &:focus {
@@ -213,7 +210,7 @@
 .mt-breadcrumbs li a:hover span:before,
 .mt-breadcrumbs li a:focus span:before,
 .mt-breadcrumbs-current-page span {
-  color: @nice-light-blue;
+  color: @customer-color;
 }
 
 //Tiles
@@ -225,7 +222,7 @@
   a {
     &:hover,
     &:active {
-      color: @nice-light-blue;
+      color: @customer-color;
     }
     &:focus {
       color: @customer-link;
@@ -371,7 +368,7 @@
     left: 0;
     height: 5px;
     width: 100%;
-    background: @nice-light-blue;
+    background: @customer-color;
   }
   h1.mt-home-search-title {
     color: @splash-text;
@@ -545,21 +542,48 @@ tr:nth-child(2n) td {
   background: #fff;
 }
 
+/* Ambers Edits */
+
+/* Breadcrumbs */
+.elm-header-global-nav {
+  border: none;
+  padding-top: 1em;
+  .mt-breadcrumbs {
+    border: none;
+  }
+  .elm-hierarchy-trigger.mt-hierarchy-trigger.ui-button-icon {
+    display: none;
+  }
+}
+
+.mt-breadcrumbs {
+  padding-left: 2em;
+}
+
+/*subtext in splash container */
+.tag-line {
+  margin-bottom: 0.5rem;
+  color: contrast(@customer-color);
+}
+
+/* Home banner search bar edits */
+.mt-custom-home .mt-field {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Home Search bar border radius */
+.mt-help {
+  border-radius: 0.5rem;
+}
+
+.elm-nav-container .mt-inputredirect {
+  padding-top: 1.5rem;
+}
+
+/* Make tiles four across on home only in single view, OOB still in detailed view */
 .mt-sortable-listings-container:not(:has(.mt-sortable-listing-detailed)) {
   grid-template-columns: repeat(4, 1fr);
-}
-
-.mt-sortable-listing-image {
-  height: 56px;
-  width: 56px;
-}
-
-.mt-sortable-listing-image.mt-image-placeholder {
-  min-height: 56px;
-  min-width: 56px;
-  span {
-    font-size: 0.6em;
-  }
 }
 
 .mt-category-container {
@@ -573,9 +597,9 @@ tr:nth-child(2n) td {
     min-height: 8.3em;
     border: 1px solid #d9dce2;
     border-radius: 4px;
-    cursor: pointer; /* optional, for hover UX */
     &:hover {
-      background: #e0e0e0;
+      border: 1px solid @customer-color !important;
+      background: fade(@customer-color, 20%);
     }
     a.mt-sortable-listing-link {
       display: flex;
@@ -587,15 +611,30 @@ tr:nth-child(2n) td {
       &:hover {
         display: flex;
         padding: 0;
-        text-decoration: underline;
-  text-underline-offset: 10px;
-  text-decoration-thickness: 3.1px;
-  text-decoration-color: @nice-light-blue;
       }
     }
   }
 }
 
+.mt-sortable-listing-title {
+  margin-bottom: 0;
+}
+
+/*Change tile image and placeholder properties */
+.mt-sortable-listing-image {
+  height: 56px;
+  width: 56px;
+}
+
+.mt-sortable-listing-image.mt-image-placeholder {
+  min-height: 56px;
+  min-width: 56px;
+  span {
+    font-size: 0.6em;
+  }
+}
+
+/* Change position of drag icon now that tiles are flex */
 .mt-edit-control.mt-icon-drag {
   position: absolute;
   top: 0;
@@ -603,8 +642,47 @@ tr:nth-child(2n) td {
   left: auto !important;
 }
 
-.mt-sortable-listing-title {
-  margin-bottom: 0;
+/* Add a custom bottom margin to tile area but only on the home page */
+.columbia-page-home .mt-sortable-listings-container {
+  margin-bottom: 4em;
+}
+
+/* Modify main content area */
+/* Move main content margins in on home only */
+@media (min-width: 83em) {
+  .columbia-page-home .elm-content-container {
+    max-width: 60em;
+    min-width: 60em;
+  }
+}
+
+@media (min-width: 80em) {
+  .columbia-page-home .elm-nav-container {
+    max-width: 60em;
+    min-width: 60em;
+  }
+}
+
+.columbia-page-home .elm-content-container {
+  padding-bottom: 0;
+}
+
+/* Add white background and shadow to main content on any page but home */
+body:not(.columbia-page-home) article#elm-main-content {
+  background: #fff;
+  padding: 2em;
+  margin: 1em auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+#title {
+  border-bottom: none;
+}
+
+/* Hide last updated */
+.elm-meta-data.elm-meta-top {
+  display: none;
 }
 
 /* Fake home popular pages CSS */
@@ -629,23 +707,19 @@ tr:nth-child(2n) td {
     .column {
       flex: 1;
       min-width: 300px;
-      a {
-        margin-bottom: 0;
-        border: 1px solid #d9dce2;
-      }
     }
   }
 }
 
-/* individual Popular tiles */
+/* Individual Popular Tiles */
 .link-item {
+  margin-bottom: 0;
+  border: 1px solid #d9dce2;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.1rem 1rem;
-  margin-bottom: 0.5rem;
-  // background: #d5f0ff;
-  background: @customer-primary;
+  padding: 1.3rem 1rem;
+  background: #fff;
   border-radius: 0; /* remove default */
   text-decoration: none;
   color: @customer-secondary !important;
@@ -664,9 +738,10 @@ tr:nth-child(2n) td {
   background-position: center;
   flex-shrink: 0;
   transition: background-image 0.3s;
-  fill: @nice-light-blue;
+  fill: @customer-color;
 }
 
+/* Create special border radius so that only the outer corners of the tiles are rounded */
 /* First item: top-left and top-right border radius */
 .link-item:first-child {
   border-top-left-radius: 2px;
@@ -679,136 +754,25 @@ tr:nth-child(2n) td {
   border-bottom-right-radius: 2px;
 }
 
-a.link-item:hover {
-  background: @nice-light-blue;
-  color: contrast(@nice-light-blue) !important;
+.link-item:hover {
+  border-color: @customer-color;
+  background: fade(@customer-color, 30%);
 }
 
+/* Stack popular tiles vertically on mobile */
 @media (max-width: 760px) {
-  .columns {
+  .fake-popular-container .columns {
     flex-direction: column;
     gap: 0;
   }
 }
 
-/* make all topics above tiles slightly smaller */
+/* make the text "all topics" above popular tiles slightly smaller */
 .home-header {
   font-size: 1.5rem;
 }
 
-/* Bottom Need More Help Section */
-.help-section {
-  width: 100%;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  .help-header {
-    margin-bottom: 1rem;
-    h2 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-    p {
-      margin: 0.25rem 0 1.5rem 0;
-      color: #555;
-    }
-  }
-}
-
-/* Need more help cards */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  .card {
-    flex: 1;
-    min-width: 250px;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem;
-    background: #f0f0f0;
-    border-radius: 6px;
-    img {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-    }
-    .card-content {
-      a {
-        font-weight: bold;
-        color: @primary-link-color !important;
-        text-decoration: none;
-        display: inline-block;
-        margin-bottom: 0.25rem;
-      }
-      p {
-        margin: 0;
-        color: #333;
-      }
-    }
-  }
-}
-
-@media (max-width: 760px) {
-  .card-container {
-    flex-direction: column;
-  }
-}
-
-/* Home banner search bar edits */
-.mt-custom-home .mt-field {
-  width: 100% !important;
-  margin: 0 !important;
-}
-
-/* Home Search bar border radius */
-.mt-help {
-  border-radius: 0.5rem;
-}
-
-.elm-nav-container .mt-inputredirect {
-  padding-top: 1.5rem;
-}
-
-/*subtext in splash container */
-.tag-line {
-  margin-bottom: 0.5rem;
-  color: #fff;
-}
-
-/* Move main content margins in */
-@media (min-width: 83em) {
-  .elm-content-container {
-    max-width: 60em;
-    min-width: 60em;
-  }
-}
-
-@media (min-width: 80em) {
-  .elm-nav-container {
-    max-width: 60em;
-  }
-}
-
-/* Refine spacing for user nav */
-.mt-user-menu > li:not(.mt-dropdown) {
-  margin-left: 1.8em !important;
-  align-items: center;
-  justify-content: center;
-}
-
-//toolbar link bottom on hover modified
-@media (min-width: 51em) {
-  .mt-user-menu > li > a:not(.mt-icon-user-menu) {
-    border-bottom: 3px solid transparent;
-    padding-top: 5px;
-  }
-}
-
-/* fixing toolbar underline spacing */
+/* fixing user toolbar underline spacing */
 .mt-user-menu > li > a:not(.mt-icon-user-menu) {
   border: none;
 }
@@ -817,7 +781,13 @@ a.link-item:hover {
 .elm-header-user-nav.elm-nav .mt-user-menu li a:not(.mt-icon-user-menu):hover {
   color: #000;
   text-decoration: underline;
-  text-underline-offset: 10px;
-  text-decoration-thickness: 3.1px;
-  text-decoration-color: @nice-light-blue;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 3px;
+  text-decoration-color: @customer-color;
+}
+
+/* Changing sign in button on home */
+.elm-user-anonymous .elm-header-home-nav .mt-icon-quick-sign-in {
+  background: @customer-color;
+  color: contrast(@customer-color);
 }

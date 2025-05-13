@@ -250,7 +250,7 @@
   color: @customer-secondary;
 }
 
-/*
+
 //Guide pages
 .ui-tabs {
   border-color: @customer-neutral-border;
@@ -317,7 +317,7 @@
 .mt-feedback-rating-controls button:hover:before {
   background: @customer-secondary;
 }
-*/
+
 
 //Page icons
 .elm-page-notifications .mt-icon-page-notification.off:before {
@@ -407,7 +407,7 @@
   color: @customer-secondary;
 }
 
-/*
+
 //Buttons
 @default-button-background-color: @background;
 @default-button-background-color-hover: @default-button-background-color;
@@ -450,7 +450,7 @@
 @edit-controls-border-color-hover: @customer-primary;
 @edit-controls-text-color: @customer-primary;
 @edit-controls-text-color-hover: contrast(@customer-primary);
-*/
+
 
 @dialog-border-color: @customer-neutral-border;
 @dialog-box-shadow: 0 0 1em fade(@customer-neutral-border, 25%);
@@ -551,7 +551,7 @@ tr:nth-child(2n) td {
   background: #fff;
 }
 
-.mt-sortable-listings-container:not(.mt-sortable-listing-detailed) {
+.mt-sortable-listings-container:not(:has(.mt-sortable-listing-detailed)) {
   grid-template-columns: repeat(4, 1fr);
 }
 

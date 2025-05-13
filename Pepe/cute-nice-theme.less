@@ -1,6 +1,5 @@
-@nice-light-blue: #23c9ff;
-@nice-dark-blue: #0006ff;
-
+// @nice-light-blue: #23c9ff;
+@nice-light-blue: #ff6200;
 @customer-primary: #f2f2f2;
 @customer-secondary: #101820;
 @customer-font: 'Be Vietnam Pro', serif;
@@ -10,9 +9,10 @@
 
 //Optional styles
 @logo-height: 50px;
-@customer-link: @nice-dark-blue;
+@customer-link: #0006ff;
 @tool-bar-link-hover: @nice-light-blue;
 
+/*
 //toolbar link bottom on hover modified
 @media (min-width: 51em) {
   .mt-user-menu > li > a:not(.mt-icon-user-menu) {
@@ -32,18 +32,12 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 5px; /* Border thickness */
-  background: linear-gradient(
-    -90deg,
-    #ff3e39,
-    #fc2566,
-    #8531e4,
-    #1000fe,
-    #05fcff
-  );
+  height: 5px; 
+  background: @nice-light-blue;
 }
+*/
 
-@splash-background: @customer-secondary; /* delete this and use @splash-background below if using an image. delete the // to uncomment it */
+@splash-background: @nice-light-blue; /* delete this and use @splash-background below if using an image. delete the // to uncomment it */
 // @splash-background: url('');
 @splash-text: #fff;
 @tile-background: #fff;
@@ -222,8 +216,8 @@
       color: @nice-light-blue;
     }
     &:focus {
-      color: @nice-dark-blue;
-      outline: 1px dotted @nice-dark-blue;
+      color: @customer-link;
+      outline: 1px dotted @customer-link;
     }
   }
   .no-touch &:hover {
@@ -368,14 +362,7 @@
     left: 0;
     height: 5px;
     width: 100%;
-    background: linear-gradient(
-      -90deg,
-      #ff3e39,
-      #fc2566,
-      #8531e4,
-      #1000fe,
-      #05fcff
-    );
+    background: @nice-light-blue;
   }
   h1.mt-home-search-title {
     color: @splash-text;
@@ -645,7 +632,8 @@ tr:nth-child(2n) td {
   align-items: center;
   padding: 1.1rem 1rem;
   margin-bottom: 0.5rem;
-  background: #d5f0ff;
+  // background: #d5f0ff;
+  background: @customer-primary;
   border-radius: 0; /* remove default */
   text-decoration: none;
   color: @customer-secondary !important;
@@ -763,44 +751,26 @@ tr:nth-child(2n) td {
   }
 }
 
-/* Home banner edits */
+/* Home banner search bar edits */
 .mt-custom-home .mt-field {
   width: 100% !important;
   margin: 0 !important;
 }
 
 
-/* Refine spacing for user nav */
-.mt-user-menu > li:not(.mt-dropdown) {
-  margin-left: 1.8em !important;
-  align-items: center;
-  justify-content: center;
-  a {
-    transition: 0.2s;
-  }
+/* Home Search bar border radius */
+.mt-help {
+  border-radius: 0.5rem;
 }
 
-/* Add dropdown svg arrow added after user nav links */
-.mt-user-menu
-  > li:not(:last-child)
-  > a.mt-dropdown-link:not(.mt-icon-new-page)::after {
-  content: '';
-  display: inline-block;
-  width: 0.8em;
-  height: 0.9em;
-  margin-left: 0.6em;
-  margin-top: 0.4em;
-  vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='6 8 12 8' fill='%23000'%3E%3Cpath d='m 12 16 a 1 1 0 0 1 -0.71 -0.29 l -6 -6 a 1 1 0 0 1 1.42 -1.42 l 5.29 5.3 l 5.29 -5.29 a 1 1 0 0 1 1.41 1.41 l -6 6 a 1 1 0 0 1 -0.7 0.29 Z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
-  transition: background-image 0.2s;
+.elm-nav-container .mt-inputredirect {
+  padding-top: 1.5rem;
 }
 
-.mt-user-menu
-  > li:not(:last-child)
-  > a.mt-dropdown-link:not(.mt-icon-new-page):hover::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='6 8 12 8' fill='%2323c9ff'%3E%3Cpath d='m 12 16 a 1 1 0 0 1 -0.71 -0.29 l -6 -6 a 1 1 0 0 1 1.42 -1.42 l 5.29 5.3 l 5.29 -5.29 a 1 1 0 0 1 1.41 1.41 l -6 6 a 1 1 0 0 1 -0.7 0.29 Z'/%3E%3C/svg%3E");
+/*subtext in splash container */
+.tag-line {
+  margin-bottom: .5rem;
+  color: #fff;
 }
 
 /* Move main content margins in */
@@ -817,7 +787,15 @@ tr:nth-child(2n) td {
   }
 }
 
-/* Search bar border radius */
-.mt-help {
-  border-radius: 0.5rem;
+/* Refine spacing for user nav */
+.mt-user-menu > li:not(.mt-dropdown) {
+  margin-left: 1.8em !important;
+  align-items: center;
+  justify-content: center;
+  a {
+    transition: 0.2s;
+  }
 }
+
+
+
